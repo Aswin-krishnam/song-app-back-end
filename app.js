@@ -13,3 +13,14 @@ mongoose.connect("mongodb+srv://aswinkrishnam16:aswinkrishnam@cluster0.2iu51vz.m
 
 
 
+app.post("/", (req, res) => {
+    let input=req.body
+    let song = new songModel(input)
+    song.save()
+    console.log(song)
+    res.json({"status":"success"})
+})
+
+app.listen(8080, () => {
+    console.log("server started")
+})
